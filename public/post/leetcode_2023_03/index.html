@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Xiejin Blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://pgmight.github.io/img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="https://pgmight.github.io/img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="力扣做题，2022年3月" />
+    <meta property="og:title" content="力扣做题，2022年3月" />
+    <meta property="twitter:title" content="力扣做题，2022年3月" />
+    
+
+    
+    <meta name="description" content="记录一下去年3月份做的力扣题以及自己的一些思路和看题解的思路">
+    <meta property="og:description" content="记录一下去年3月份做的力扣题以及自己的一些思路和看题解的思路" />
+    <meta property="twitter:description" content="记录一下去年3月份做的力扣题以及自己的一些思路和看题解的思路" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>力扣做题，2022年3月 | 谢晋的博客</title>
+
+    <link rel="canonical" href="/post/leetcode_2023_03/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Xiejin Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/archive//">ARCHIVE</a></li>
+                    
+                        <li><a href="/notes//">NOTES</a></li>
+                    
+                        <li><a href="/about//">ABOUT</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bg-jeep.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>力扣做题，2022年3月</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Xiejin Blog
+                             
+                            on 
+                            Thursday, August 17, 2023
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h3 id="172阶乘后的零中等325">172.阶乘后的零（中等）3.25</h3>
+<ul>
+<li>
+<p><strong>题设</strong> ：
+给定一个整数 <code>n</code> ，返回 <code>n!</code> 结果中尾随零的数量。
+提示 <code>n! = n * (n - 1) * (n - 2) * ... * 3 * 2 * 1</code>
+<strong>示例一：</strong></p>
+<pre tabindex="0"><code>输入：n = 3
+输出：0
+解释：3! = 6 ，不含尾随 0
+</code></pre><p><strong>示例二：</strong></p>
+<pre tabindex="0"><code>输入：n = 5
+输出：1
+解释：5! = 120 ，有一个尾随 0
+</code></pre><p><strong>示例三：</strong></p>
+<pre tabindex="0"><code>输入：n = 0
+输出：0
+</code></pre><p><strong>提示：</strong></p>
+<ul>
+<li><code>0 &lt;= n &lt;= 10^4</code></li>
+</ul>
+</li>
+<li>
+<p><strong>解题思路</strong>：
+<strong>方法一：数学</strong>
+n! 尾零的数量即为 n! 中因子 10 的个数，而 10=2×5，因此转换成求 n! 中质因子 2 的个数和质因子 5 的个数的较小值。</p>
+<p>由于质因子 2 的个数不会低于质因子 5 的个数（具体证明见方法二），我们可以仅考虑质因子 5 的个数。</p>
+<p>而 n! 中质因子 5 的个数等于 [1,n] 的每个数的质因子 5 的个数之和，我们可以通过遍历 [1,n] 的所有 55 的倍数求出。</p>
+<p><strong>方法二：优化计算</strong>
+换一个角度考虑 [1,n] 中质因子 p 的个数。
+[1,n]中 p 的倍数有
+$$
+n_1 = \lfloor \frac{n}{p} \rfloor
+$$
+个，这些数至少贡献出了 n1 个质因子 p。p²的倍数有
+$$
+n_2 = \lfloor \frac{n}{p^2} \rfloor
+$$
+个，由于这些数均为 p 的倍数，因此这些数额外贡献了 n2 个质因子 p。
+依此类推，[1,n] 中质因子 p 的个数为
+$$
+\sum_{k=1}^{\infty}{\lfloor \frac{n}{p^k} \rfloor}
+$$
+上式表明：</p>
+<pre><code>  1. [1,n] 中质因子 5 的个数不会低于质因子 2 的个数；
+  2. [1,n] 中质因子 5 的个数为
+</code></pre>
+<p>$$
+\sum_{k=1}^{\infty}{\lfloor \frac{n}{5^k} \rfloor} &lt; \sum_{k=1}^{\infty}{\frac{n}{5^k}} = \frac{n}{4} = O(n)
+$$</p>
+<p>代码实现时，由于
+$$
+\lfloor \frac{n}{5^k} \rfloor = \lfloor \frac{\lfloor \frac{n}{5^{k-1}} \rfloor}{5} \rfloor
+$$</p>
+</li>
+<li>
+<p><strong>参考代码</strong>：
+<strong>方法一：</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">trailingZeroes</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> n<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">int</span> ans <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 5<span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&lt;=</span> n<span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">+=</span> 5<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> x <span style="color:#ff79c6">=</span> i<span style="color:#ff79c6">;</span> x <span style="color:#ff79c6">%</span> 5 <span style="color:#ff79c6">==</span> 0<span style="color:#ff79c6">;</span> x <span style="color:#ff79c6">/=</span> 5<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">++</span>ans<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> ans<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><p><strong>方法二：</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">trailingZeroes</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> n<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">int</span> ans <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(</span>n <span style="color:#ff79c6">!=</span> 0<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>            n <span style="color:#ff79c6">/=</span> 5<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>            ans <span style="color:#ff79c6">+=</span> n<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> ans<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>总结</strong>：寄</p>
+</li>
+</ul>
+<h3 id="1606找到处理最多请求的服务器困难">1606.找到处理最多请求的服务器（困难）</h3>
+<ul>
+<li>
+<p><strong>题设</strong> ：
+你有 <code>k</code> 个服务器，编号为 <code>0</code> 到 <code>k-1</code> ，它们可以同时处理多个请求组。每个服务器有无穷的计算能力但是 不能同时处理超过一个请求 。请求分配到服务器的规则如下：</p>
+<ul>
+<li>第 <code>i</code> （序号从 <code>0</code> 开始）个请求到达。</li>
+<li>如果所有服务器都已被占据，那么该请求被舍弃（完全不处理）。</li>
+<li>如果第 <code>(i % k)</code> 个服务器空闲，那么对应服务器会处理该请求。</li>
+<li>否则，将请求安排给下一个空闲的服务器（服务器构成一个环，必要的话可能从第 <code>0</code> 个服务器开始继续找下一个空闲的服务器）。比方说，如果第 <code>i</code> 个服务器在忙，那么会查看第 <code>(i+1)</code> 个服务器，第 <code>(i+2)</code> 个服务器等等。</li>
+</ul>
+<p>给你一个 <strong>严格递增</strong> 的正整数数组 <code>arrival</code> ，表示第 <code>i</code> 个任务的到达时间，和另一个数组 <code>load</code> ，其中 <code>load[i]</code> 表示第 <code>i</code> 个请求的工作量（也就是服务器完成它所需要的时间）。你的任务是找到 <strong>最繁忙的服务器</strong> 。最繁忙定义为一个服务器处理的请求数是所有服务器里最多的。
+请你返回包含所有 <strong>最繁忙服务器</strong> 序号的列表，你可以以任意顺序返回这个列表。</p>
+<p><strong>示例一：</strong>
+
+  <img src="./%e7%ac%94%e8%ae%b0%e5%9b%be%e7%a4%ba/Question1606_1.png" alt="">
+
+</p>
+<pre tabindex="0"><code>输入：k = 3, arrival = [1,2,3,4,5], load = [5,2,3,3,3] 
+输出：[1] 
+解释：
+所有服务器一开始都是空闲的。
+前 3 个请求分别由前 3 台服务器依次处理。
+请求 3 进来的时候，服务器 0 被占据，所以它被安排到下一台空闲的服务器，也就是服务器 1 。
+请求 4 进来的时候，由于所有服务器都被占据，该请求被舍弃。
+服务器 0 和 2 分别都处理了一个请求，服务器 1 处理了两个请求。所以服务器 1 是最忙的服务器。
+</code></pre><p><strong>示例二：</strong></p>
+<pre tabindex="0"><code>输入：k = 3, arrival = [1,2,3,4], load = [1,2,1,2]
+输出：[0]
+解释：
+前 3 个请求分别被前 3 个服务器处理。
+请求 3 进来，由于服务器 0 空闲，它被服务器 0 处理。
+服务器 0 处理了两个请求，服务器 1 和 2 分别处理了一个请求。所以服务器 0 是最忙的服务器。
+</code></pre><p><strong>示例三：</strong></p>
+<pre tabindex="0"><code>输入：k = 3, arrival = [1,2,3], load = [10,12,11]
+输出：[0,1,2]
+解释：每个服务器分别处理了一个请求，所以它们都是最忙的服务器。
+</code></pre><p><strong>示例四：</strong></p>
+<pre tabindex="0"><code>输入：k = 3, arrival = [1,2,3,4,8,9,10], load = [5,2,10,3,1,2,2]
+输出：[1]
+</code></pre><p><strong>示例五：</strong></p>
+<pre tabindex="0"><code>输入：k = 1, arrival = [1], load = [1]
+输出：[0]
+</code></pre><p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= k &lt;= 10^5</code></li>
+<li><code>1 &lt;= arrival.length, load.length &lt;= 10^5</code></li>
+<li><code>arrival.length == load.length</code></li>
+<li><code>1 &lt;= arrival[i], load[i] &lt;= 10^9</code></li>
+<li><code>arrival</code> 保证 <strong>严格递增</strong> 。</li>
+</ul>
+</li>
+<li>
+<p><strong>解题思路</strong>：
+<strong>模拟 + 双优先队列</strong>
+将空闲服务器的编号都放入一个有序集合 available 中，将正在处理请求的服务器的处理结束时间和编号都放入一个优先队列 busy 中，优先队列满足队首的服务器的处理结束时间最小，用一个数组 requests 记录对应服务器处理的请求数目。
+假设当前到达的请求为第 i 个，如果 busy 不为空， 那么我们判断 busy 的队首对应的服务器的结束时间是否小于等于当前请求的到达时间 arrival[i]，如果是，那么我们将它从 busy 中移除，并且将该服务器的编号放入 available 中，然后再次进行判断。如果 available 为空，那么该请求被丢弃；否则查找 available 中大于等于 i mod k 的第一个元素，如果查找成功，那么将它作为处理请求的服务器，否则将 available 中编号最小的服务器作为处理请求的服务器。设处理请求的服务器的编号为 j，那么将 requests[j] 加 1，并且将该服务器从 available 移除，然后将服务器 j 放入 busy 中，对应的处理结束时间为 arrival[i] + load[i]。
+获取 requests 的最大值 maxRequest，遍历 requests 数组，对于每个下标 i，如果 requests[i] = maxRequest，那么将编号 i 加入结果中。
+上述的 available 也可以用优先队列实现。
+设在第 i 个请求到来时，编号为 id 的服务器已经处理完请求，那么将 id 从 busy 中移除，并放入一个不小于 i 且同余于 id 的编号，这样就能在保证 available 中，编号小于 i mod k 的空闲服务器能排到编号不小于 i mod k 的空闲服务器后面。</p>
+</li>
+<li>
+<p><strong>参考代码</strong>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> List<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">busiestServers</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> k<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> arrival<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> load<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        PriorityQueue<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;</span> available <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> PriorityQueue<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;((</span>a<span style="color:#ff79c6">,</span> b<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">-&gt;</span> a <span style="color:#ff79c6">-</span> b<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&lt;</span> k<span style="color:#ff79c6">;</span> i<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>            available<span style="color:#ff79c6">.</span><span style="color:#50fa7b">offer</span><span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>        PriorityQueue<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]&gt;</span> busy <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> PriorityQueue<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]&gt;((</span>a<span style="color:#ff79c6">,</span> b<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">-&gt;</span> a<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">-</span> b<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">]);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> requests <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[</span>k<span style="color:#ff79c6">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&lt;</span> arrival<span style="color:#ff79c6">.</span><span style="color:#50fa7b">length</span><span style="color:#ff79c6">;</span> i<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">while</span> <span style="color:#ff79c6">(!</span>busy<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isEmpty</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">&amp;&amp;</span> busy<span style="color:#ff79c6">.</span><span style="color:#50fa7b">peek</span><span style="color:#ff79c6">()[</span>0<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">&lt;=</span> arrival<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">])</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#8be9fd">int</span> id <span style="color:#ff79c6">=</span> busy<span style="color:#ff79c6">.</span><span style="color:#50fa7b">peek</span><span style="color:#ff79c6">()[</span>1<span style="color:#ff79c6">];</span>
+</span></span><span style="display:flex;"><span>                busy<span style="color:#ff79c6">.</span><span style="color:#50fa7b">poll</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>                available<span style="color:#ff79c6">.</span><span style="color:#50fa7b">offer</span><span style="color:#ff79c6">(</span>i <span style="color:#ff79c6">+</span> <span style="color:#ff79c6">((</span>id <span style="color:#ff79c6">-</span> i<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">%</span> k <span style="color:#ff79c6">+</span> k<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">%</span> k<span style="color:#ff79c6">);</span> <span style="color:#6272a4">// 保证得到的是一个不小于 i 的且与 id 同余的数
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>available<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isEmpty</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">continue</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">int</span> server <span style="color:#ff79c6">=</span> available<span style="color:#ff79c6">.</span><span style="color:#50fa7b">poll</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">%</span> k<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>            requests<span style="color:#ff79c6">[</span>server<span style="color:#ff79c6">]++;</span>
+</span></span><span style="display:flex;"><span>            busy<span style="color:#ff79c6">.</span><span style="color:#50fa7b">offer</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]{</span>arrival<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+</span> load<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">],</span> server<span style="color:#ff79c6">});</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">int</span> maxRequest <span style="color:#ff79c6">=</span> Arrays<span style="color:#ff79c6">.</span><span style="color:#50fa7b">stream</span><span style="color:#ff79c6">(</span>requests<span style="color:#ff79c6">).</span><span style="color:#50fa7b">max</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">getAsInt</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;</span> ret <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ArrayList<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&lt;</span> k<span style="color:#ff79c6">;</span> i<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>requests<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">==</span> maxRequest<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>                ret<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> ret<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="954二倍数对数组中等">954.二倍数对数组（中等）</h3>
+<ul>
+<li>
+<p><strong>题设</strong> ：
+给定一个长度为偶数的整数数组 <code>arr</code>，只有对 <code>arr</code> 进行重组后可以满足 “对于每个 <code>0 &lt;= i &lt; len(arr) / 2</code>，都有 <code>arr[2 * i + 1] = 2 * arr[2 * i]</code>” 时，返回 <code>true</code>；否则，返回 <code>false</code>。
+示例一：</p>
+<pre tabindex="0"><code>输入：arr = [3,1,3,6]
+输出：false
+</code></pre><p>示例二：</p>
+<pre tabindex="0"><code>输入：arr = [2,1,2,6]
+输出：false
+</code></pre><p>示例三：</p>
+<pre tabindex="0"><code>输入：arr = [4,-2,2,-4]
+输出：true
+解释：可以用 [-2,-4] 和 [2,4] 这两组组成 [-2,-4,2,4] 或是 [2,4,-2,-4]
+</code></pre><p>提示：</p>
+<ul>
+<li><code>0 &lt;= arr.length &lt;= 3 * 10^4</code></li>
+<li><code>arr.length</code> 是偶数</li>
+<li><code>-10^5 &lt;= arr[i] &lt;= 10^5</code></li>
+</ul>
+</li>
+<li>
+<p><strong>解题思路</strong>：
+<strong>哈希表 + 排序</strong>
+设 arr 的长度为 n，题目本质上是问 arr 能否分成 n/2 对元素，每对元素中一个数是另一个数的两倍。
+设 cnt<input checked="" disabled="" type="checkbox"> 表示 arr 中 x 的个数。
+对于 arr 中的 0，它只能与 0 匹配。如果 cnt[0] 是奇数，那么必然无法满足题目要求。
+去掉 arr 中的 0。设 x 为 arr 中绝对值最小的元素，由于没有绝对值比 x 更小的数，因此 x 只能与 2x 匹配。如果此时 cnt[2x]&lt;cnt<input checked="" disabled="" type="checkbox"> ，那么会有部分 x 无法找到它的另一半，即无法满足题目要求；否则将所有 x 和 cnt<input checked="" disabled="" type="checkbox"> 个 2x 从 arr 中去掉，继续判断剩余元素是否满足题目要求。不断重复此操作，如果某个时刻 arr 为空，则说明 arr 可以满足题目要求。
+代码实现时，我们可以用一个哈希表来统计 cnt，并将其键值按绝对值从小到大排序，然后模拟上述操作，去掉元素的操作可以改为从 cnt 中减去对应值。</p>
+</li>
+<li>
+<p><strong>参考代码</strong>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Solution</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">boolean</span> <span style="color:#50fa7b">canReorderDoubled</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">[]</span> arr<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        Map<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">,</span> Integer<span style="color:#ff79c6">&gt;</span> cnt <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> HashMap<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">,</span> Integer<span style="color:#ff79c6">&gt;();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> x <span style="color:#ff79c6">:</span> arr<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>            cnt<span style="color:#ff79c6">.</span><span style="color:#50fa7b">put</span><span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">,</span> cnt<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getOrDefault</span><span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">,</span> 0<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">+</span> 1<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>cnt<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getOrDefault</span><span style="color:#ff79c6">(</span>0<span style="color:#ff79c6">,</span> 0<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">%</span> 2 <span style="color:#ff79c6">!=</span> 0<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;</span> vals <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ArrayList<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> x <span style="color:#ff79c6">:</span> cnt<span style="color:#ff79c6">.</span><span style="color:#50fa7b">keySet</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>            vals<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>        Collections<span style="color:#ff79c6">.</span><span style="color:#50fa7b">sort</span><span style="color:#ff79c6">(</span>vals<span style="color:#ff79c6">,</span> <span style="color:#ff79c6">(</span>a<span style="color:#ff79c6">,</span> b<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">-&gt;</span> Math<span style="color:#ff79c6">.</span><span style="color:#50fa7b">abs</span><span style="color:#ff79c6">(</span>a<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">-</span> Math<span style="color:#ff79c6">.</span><span style="color:#50fa7b">abs</span><span style="color:#ff79c6">(</span>b<span style="color:#ff79c6">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> x <span style="color:#ff79c6">:</span> vals<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>cnt<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getOrDefault</span><span style="color:#ff79c6">(</span>2 <span style="color:#ff79c6">*</span> x<span style="color:#ff79c6">,</span> 0<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">&lt;</span> cnt<span style="color:#ff79c6">.</span><span style="color:#50fa7b">get</span><span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span> <span style="color:#6272a4">// 无法找到足够的 2x 与 x 配对
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>            cnt<span style="color:#ff79c6">.</span><span style="color:#50fa7b">put</span><span style="color:#ff79c6">(</span>2 <span style="color:#ff79c6">*</span> x<span style="color:#ff79c6">,</span> cnt<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getOrDefault</span><span style="color:#ff79c6">(</span>2 <span style="color:#ff79c6">*</span> x<span style="color:#ff79c6">,</span> 0<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">-</span> cnt<span style="color:#ff79c6">.</span><span style="color:#50fa7b">get</span><span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div></li>
+</ul>
+
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/post/leetcode_2022_04/" data-toggle="tooltip" data-placement="top" title="力扣刷题，2022年4月">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="PGMIGHT/pgmight.github.io"
+        data-repo-id=""
+        data-category="Announcements"
+        data-category-id="DIC_kwDOKH9C-M4CYqNX"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/PGMIGHT">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Xiejin Blog" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Xiejin Blog 2023
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

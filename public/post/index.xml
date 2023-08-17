@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Xiejin Blog</title>
-    <link>https://pgmight.github.io/</link>
-    <description>Recent content on Xiejin Blog</description>
+    <title>Posts on Xiejin Blog</title>
+    <link>https://pgmight.github.io/post/</link>
+    <description>Recent content in Posts on Xiejin Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Aug 2023 05:28:05 +0800</lastBuildDate><atom:link href="https://pgmight.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Aug 2023 05:28:05 +0800</lastBuildDate><atom:link href="https://pgmight.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>力扣刷题，2022年4月</title>
       <link>https://pgmight.github.io/post/leetcode_2022_04/</link>
@@ -23,15 +23,6 @@
       
       <guid>https://pgmight.github.io/post/leetcode_2023_03/</guid>
       <description>172.阶乘后的零（中等）3.25 题设 ： 给定一个整数 n ，返回 n! 结果中尾随零的数量。 提示 n! = n * (n - 1) * (n - 2) * ... * 3 * 2 * 1 示例一： 输入：n</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://pgmight.github.io/search/placeholder/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://pgmight.github.io/search/placeholder/</guid>
-      <description></description>
     </item>
     
   </channel>

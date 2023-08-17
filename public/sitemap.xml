@@ -2,6 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://pgmight.github.io/post/</loc>
+    <lastmod>2023-08-17T05:28:05+08:00</lastmod>
+  </url><url>
+    <loc>https://pgmight.github.io/</loc>
+    <lastmod>2023-08-17T05:28:05+08:00</lastmod>
+  </url><url>
+    <loc>https://pgmight.github.io/post/leetcode_2022_04/</loc>
+    <lastmod>2023-08-17T05:28:05+08:00</lastmod>
+  </url><url>
+    <loc>https://pgmight.github.io/post/leetcode_2023_03/</loc>
+    <lastmod>2023-08-17T04:53:39+08:00</lastmod>
+  </url><url>
     <loc>https://pgmight.github.io/search/placeholder/</loc>
   </url><url>
     <loc>https://pgmight.github.io/categories/</loc>
@@ -9,7 +21,5 @@
     <loc>https://pgmight.github.io/search/</loc>
   </url><url>
     <loc>https://pgmight.github.io/tags/</loc>
-  </url><url>
-    <loc>https://pgmight.github.io/</loc>
   </url>
 </urlset>
