@@ -39,9 +39,18 @@
 		    {{ range .Site.Params.addtional_menus }}
                         <li><a href="{{.href | relLangURL}}/">{{.title}}</a></li>
                     {{ end }}
-		            <li>
+		            <!--- <li>
                         <a href="{{ "search" | relURL }}"><i class="fa fa-search"></i></a>
-		           </li>
+		           </li> --->
+                    {{ if .Site.Params.algolia_search  }}
+    <li>
+        <a href="{{ "search" | relURL }}"><i class="fa fa-search"></i></a>
+    </li>
+ {{else if  .Site.Params.search}}
+    <li>
+        <a href="{{ "search" | relURL }}"><i class="fa fa-search"></i></a>
+    </li>
+ {{ end }}
                 </ul>
             </div>
         </div>
