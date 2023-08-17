@@ -120,6 +120,18 @@ isPlainText = true
 mediaType = "application/json"
 notAlternative = true
 
+[params.giscus]
+    data_repo="PGMIGHT/pgmight.github.io"
+    data-repo-id="R_kgDOKH9C-A"    
+    data_category="Announcements"
+    data_category_id="DIC_kwDOKH9C-M4CYqNX"
+    data_mapping="pathname"
+    data_reactions_enabled="1"
+    data_emit_metadata="0"
+    data_theme="light"
+    data_lang="zh-CN"
+    crossorigin="anonymous"
+
 [params.algolia]
 vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
 params = ["categories", "tags"] 
