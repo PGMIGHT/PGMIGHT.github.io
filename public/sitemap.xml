@@ -2,16 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://PGMIGHT.github.io/designs/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://pgmight.github.io/search/placeholder/</loc>
   </url><url>
-    <loc>https://PGMIGHT.github.io/techs/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://pgmight.github.io/categories/</loc>
   </url><url>
-    <loc>https://PGMIGHT.github.io/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://pgmight.github.io/search/</loc>
+  </url><url>
+    <loc>https://pgmight.github.io/tags/</loc>
+  </url><url>
+    <loc>https://pgmight.github.io/</loc>
   </url>
 </urlset>
